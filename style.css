@@ -3,51 +3,243 @@
 
 /**
   CSS Reset
-  Source: https://www.joshwcomeau.com/css/custom-css-reset/
 **/
-/* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
-/* 2. Remove default margin */
+
 * {
   margin: 0;
 }
+
+
 body {
-  /* 3. Add accessible line-height */
-  line-height: 1.5;
-  /* 4. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
-}
-/* 5. Improve media defaults */
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-/* 6. Inherit fonts for form controls */
-input, button, textarea, select {
-  font: inherit;
-}
-/* 7. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-/* 8. Improve line wrapping */
-p {
-  text-wrap: pretty;
-}
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-}
-/*
-  9. Create a root stacking context
-*/
-#root, #__next {
-  isolation: isolate;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/** Your CSS Below **/
+.wrapper {
+  /* height: 100vh; */
+  display: flex;
+  background: rgba(128, 128, 128, 0.163);
+  padding: 50px 40px;
+}
 
-/** Attribution CSS **/
-.attribution { font-size: 11px; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.left-section {
+  flex: 1;
+  background: linear-gradient(to top, blue, rgb(87, 7, 87));
+  color: white;
+  border-radius: 15px;
+  padding-right: 10px;
+  position: relative;
+  left: 0px;
+  z-index: 101;
+  
+}
+
+.result-statement {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.result-statement .top-head {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  opacity: .8;
+}
+
+.result-statement .circle-box {
+  height: 100px;
+  width: 100px;
+  padding: 8px;
+  border: none;
+  border-radius: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: linear-gradient(to top, blue, rgb(87, 7, 87));
+  
+}
+
+.circle-box .top-num {
+  font-size: 3.4rem;
+}
+.circle-box .low-num {
+  font-size: 13px;
+  opacity: .5;
+}
+
+.result-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.result-text .low-head {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.result-text .text {
+  text-align: center;
+  width: 200px;
+  line-height: 20px;
+  font-size: 14px;
+  margin: 0;
+  opacity: .8;
+}
+
+.right-section {
+  flex: 1;
+  border-radius: 0 15px 15px 0;
+  background-color: white;
+  position: relative;
+  left: -1px;
+  z-index: 100;
+  padding-left: 10px;
+}
+
+.result-display {
+  padding: 20px;
+}
+
+.summary {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 20px;
+}
+
+.result-display div {
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.salmon {
+  background-color: rgb(241, 204, 200);
+  display: flex;
+  color: grey;
+}
+
+.salmon .reaction {
+  font-size: 16px;
+  font-weight: bold;
+  color: salmon;
+  margin-right: auto;
+}
+
+.bold {
+  font-weight: bold;
+  color: rgba(0, 4, 10, 0.842);
+}
+
+.grey {
+  color: grey;
+}
+
+.pink {
+  background-color: rgb(247, 243, 244);
+  display: flex;
+  color: grey;
+}
+.pink .memory {
+  font-size: 16px;
+  font-weight: bold;
+  color: orange;
+  margin-right: auto;
+}
+
+.green {
+  background-color: rgb(217, 240, 217);
+  display: flex;
+  
+}
+.green .verbal {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(7, 216, 7);
+  margin-right: auto;
+}
+
+.purple {
+  background-color: rgb(234, 209, 234);
+  display: flex;
+
+}
+.purple .visual {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(0, 11, 128);
+  margin-right: auto;
+}
+
+.continue {
+  border: none;
+  border-radius: 20px;
+  padding: 10px;
+  width: 100%;
+  color: white;
+  background-color: rgb(9, 0, 0);
+}
+/** Media Queries **/
+
+@media (max-width: 540px) {
+  .wrapper {
+    display: block;
+    font-size: 22px;
+    padding: 30px;
+  }
+
+  .left-section {
+    background: linear-gradient(to top, blue, rgb(87, 7, 87));
+    color: white;
+    border-radius: 0;
+    position: relative;
+    bottom: -5px;
+    z-index: 101;
+  }
+
+  .right-section {
+    background-color: white;
+    border-radius: 0 0 0px 0px; /* Rounded corners only at the bottom for the right section */
+    position: relative;
+    left: 0px;
+    top: -5px;
+    z-index: 100;
+  }
+
+  .result-text .text {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .circle-box {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+
+  /* Round corners for left panel on mobile */
+  .left-section {
+    border-radius: 0 0 20px 20px; /* Round bottom corners for left panel */
+  }
+
+  /* Ensure 76 of 100 is centered */
+  .circle-box .top-num {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    text-align: center; /* Ensure number is centered */
+  }
+
+  .result-text .low-head {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+}
